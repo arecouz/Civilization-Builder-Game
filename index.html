@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Civ</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" type="module"></script>
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- HOME -->
+      <div class="planet home-planet popover-trigger" id='1'></div>
+      <!-- OTHER -->
+      <div class="planet other-planet popover-trigger" id='2' data-launched="false"></div>
+      <div class="planet other-planet popover-trigger" id='3' data-launched="false"></div>
+      <div class="planet other-planet popover-trigger" id='4' data-launched="false"></div>
+      <div class="planet other-planet popover-trigger" id='5' data-launched="false"></div>
+      <div class="planet other-planet popover-trigger" id='6' data-launched="false"></div>
+      <div class="planet other-planet popover-trigger" id='7' data-launched="false"></div>
+
+      <div id="popover" class="popover">
+        <p>Cost of expedition:</p>
+        <p id="expedition-cost">cost goes here</p>
+        <button id="launch-button">launch 🚀</button>
+        <p id="launched-text" style="display: none">Mission Successfull!</p>
+      </div>
+      <div id="endgame" class="endgame" style="display: none;">
+        <h1>We know not how are great ancestors first came to be, how life began. We have travelled to all six planets in this solar system. We discovered planets that where lush and green, and others that where harsh and desolate. One planet at a time we came and we took. Now there is nothing left. The ecosystems that existed have been destroyed and the balance that once existed has left us with a desolate cold solar system.</h1>
+        <h1> Vanessa Grenlington, and her team on planet4 believe they have discovered the means for interstellar travel. The resources required are immense and we can only send two of our kind, possibly infants, with the most basic resources. It is a decision that the entire civilization must make, but our time here is running out. We hope they won't make the same mistakes.</h1>
+          <div>
+            <button id="endgame-button-launch" class="endgame-button-launch">launch</button>
+          </div>
+      </div>
+    </div>
+    <div class="info-container">
+        <h3 id="year" style="display: none;">Year: </h3>
+        <h3 id="population">Population: 0</h3>
+        <h3 id="resources">Resources: 0</h3>
+        <div id="inital-text">Rubbing sticks together: <p id="production-rate"></p></div>
+        <div id="emoji-container"></div>
+        <div id="loading-container" style="width: 8rem; background: #000000; border: 1px solid #ccc;">
+          <div id="loading-bar" style="width: 0%; height: 20px; background: #9affa2;"></div>
+        </div>
+        <div class="resource-container">
+          <button class="buy-button" data-resource="fire">🪵 Fire (1)</button>
+          <p class="resource-status" id="fire-status">
+            
+          </p>
+          
+        </div>
+        
+        <div class="resource-container">
+          <button class="buy-button" data-resource="coal">⚒️ Coal (2000)</button>
+          <p class="resource-status" id="coal-status">
+            
+          </p>
+          
+        </div>
+        
+        <div class="resource-container">
+          <button class="buy-button" data-resource="solar">☀️ Solar (45000)</button>
+          <p class="resource-status" id="solar-status">
+            
+          </p>
+        </div>
+        
+        <div class="resource-container">
+          <button class="buy-button" data-resource="nuclear">☢️ Nuclear (95000)</button>
+          <p class="resource-status" id="nuclear-status">
+            
+          </p>
+        </div>
+        
+    </div>
+    </div>
+  </body>
+</html>

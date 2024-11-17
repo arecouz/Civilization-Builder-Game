@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+}
+
+.game-container {
+  background-color: #111;
+}
+
+.planet.home-planet {
+  width: 4rem;
+  height: 4rem;
+  background-color: lightgreen;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 10; /* Home planet sits above others */
+}
+
+.planet.other-planet {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.info-container {
+  position: fixed; /* Fixes the container to the viewport */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  bottom: 0; /* Align it at the bottom of the screen */
+  left: 0; /* Ensure it starts from the left edge */
+  width: 100%; /* Take the entire width of the screen */
+  background-color: #471e1eb3; /* Optional: Semi-transparent background */
+  color: white; /* Text color */
+  padding: 1rem; /* Add some padding */
+  box-sizing: border-box; /* Ensure padding doesn't overflow the container */
+  z-index: 1;
+}
+
+.popover {
+  color: black;
+  background-color: white;
+  display: none;
+  position: absolute;
+  z-index: 10001;
+  padding: 2%;
+}
+.popover::before {
+  position: absolute;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+.popover-trigger {
+  cursor: pointer;
+}
+.resource {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0%;
+}
+.resource-container {
+  display: flex;
+  margin: 3px;
+}
+
+.resource-status {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1px;
+}
+
+.buy-button {
+  width: 8rem;
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.buy-button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.endgame {
+  position: fixed; /* Fixed position relative to the viewport */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for element's own dimensions */
+  width: 90%; /* Responsive width for mobile and desktop */
+  max-width: 600px; /* Limit width on larger screens */
+  padding: 2rem; /* Add some spacing inside */
+  background-color: antiquewhite; /* Light background color */
+  color: #222; /* Dark text color for readability */
+  border-radius: 10px; /* Rounded corners for aesthetics */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  text-align: center; /* Center text alignment */
+  z-index: 10003; /* Ensure it sits on top */
+}
+
+.endgame h1 {
+  font-size: 1.2rem; /* Slightly smaller for readability */
+  line-height: 1.5; /* Improved spacing for long text */
+  margin-bottom: 1.5rem; /* Spacing below the text */
+}
+
+.endgame-button-launch {
+  display: inline-block; /* Center button relative to its container */
+  padding: 1rem 2rem; /* Add padding for a large button */
+  font-size: 1.2rem; /* Make the button text larger */
+  font-weight: bold; /* Emphasize the text */
+  color: rgb(0, 0, 0); /* White text */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded edges */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  text-transform: uppercase; /* Uppercase text */
+  transition: all 0.3s ease-in-out; /* Smooth animations */
+}
+
+.endgame-button-launch:hover {
+  background: white;
+  transform: scale(1.05);
+}
+
+.endgame-button-launch:active {
+  transform: scale(0.98); /* Slight depression effect */
+}
+
+#loading-container {
+  width: 100%;
+  height: 20px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#loading-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #76c7c0;
+  transition: width 8s ease;
+}
+
+.rocket {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+@keyframes travel {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(var(--delta-x), var(--delta-y));
+  }
+}
+
+.launch-animation {
+  animation: travel 2s linear forwards;
+}
