@@ -93,7 +93,6 @@ body {
 
 .buy-button:disabled {
   background-color: gray;
-  cursor: not-allowed;
 }
 
 .endgame {
